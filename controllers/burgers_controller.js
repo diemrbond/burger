@@ -12,7 +12,7 @@ router.get("/", function (request, response) {
         const hbsObject = {
             burgers: data
         };
-        console.log(`--> ${logSymbols.success} Sending: ${hbsObject}`);
+        console.log(`--> ${logSymbols.success} Sending: ${JSON.stringify(hbsObject)}`);
         response.render("index", hbsObject);
     });
 });
@@ -37,17 +37,6 @@ router.put("/api/burgers/:id", function (request, response) {
         else {
             response.status(200).end();
         }
-    });
-});
-
-// FAIL SAFE
-router.get("*", function (request, response) {
-    burger.selectAll(function (data) {
-        const hbsObject = {
-            burgers: data
-        };
-        console.log(`--> ${logSymbols.success} Sending: ${hbsObject}`);
-        response.render("index", hbsObject);
     });
 });
 

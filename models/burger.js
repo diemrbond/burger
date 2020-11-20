@@ -4,7 +4,7 @@ const orm = require("../config/orm");
 // BURGER OBJECT
 var burger = {
 
-    selectAll: function () {
+    selectAll: function (callback) {
         orm.selectAll("burgers", function (response) {
             callback(response);
         });
