@@ -13,8 +13,14 @@ const orm = {
         });
     },
 
-    insertOne: function () {
+    insertOne: function (table, column, values, callback) {
 
+        let queryString = `INSERT INTO ?? (??) VALUES (?)`;
+        
+        connection.query(queryString, [table,column,values], function (error, result) {
+            if (error) throw error;
+            callback(result);
+        });
     },
     
     updateOne: function () {

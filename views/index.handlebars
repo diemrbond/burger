@@ -12,7 +12,7 @@
             <input type="text" id="addBurger" class="form-control"
                 placeholder="Enter the name of a burger you'd like to eat and press 'Add Burger!'">
             <div class="input-group-append">
-                <button class="btn btn-success" id="addBurger" type="button">Add Burger!</button>
+                <button class="btn btn-success" id="addBurgerBtn" type="button">Add Burger!</button>
             </div>
         </div>
     </div>
@@ -23,15 +23,19 @@
         <div class="col-6">
             <h5>Available Burgers:</h5>
                 {{#each burger}}
-                <div class="input-group-append">
-                    <div class="bg-light rounded p-2 w-100 mb-3"><span class="align-middle h-100">{{burger_name}}</span><button class="btn btn-info pull-right" id="addBurger" type="button">Devour!</button></div>
-                </div>
+                    {{#unless devoured}}
+                    <div class="input-group-append">
+                        <div class="burgers bg-light rounded p-2 w-100 mb-3"><span class="align-middle h-100">{{id}}. {{burger_name}}</span><button class="btn btn-info pull-right" id="eatBurger" type="button">Devour!</button></div>
+                    </div>
+                    {{/unless}}
                 {{/each}}
         </div>
         <div class="col-6 text-right">
             <h5>Devoured Burgers:</h5>
                 {{#each burger}}
-                <div class="bg-dark text-white rounded p-2 w-100 mb-3">{{burger_name}}</div>
+                    {{#if devoured}}
+                    <div class="burgers bg-dark text-white rounded p-2 w-100 mb-3">{{id}}. {{burger_name}}</div>
+                    {{/if}}
                 {{/each}}
         </div>
 

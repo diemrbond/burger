@@ -19,18 +19,18 @@ router.get("/", function (request, response) {
 
 // POST
 router.post("/api/burgers", function (request, response) {
-    burger.insertOne(["burger_name"], [request.body.burger_name], function (result) {
+    burger.insertOne("burger_name", request.body.burger_name, function (result) {
         response.json({ id: result.insertId });
     });
 });
 
 // UPDATE
-router.put("/api/burgers/:id", function (request, response) {
-    const devoured = "id = " + request.params.id;
+router.put("/api/burgers/:new", function (request, response) {
+    const devoured = request.params.new;
 
     console.log(`--> Devoured: ${devoured}`);
 
-    burger.updateOne({ devoured: req.body.devoured }, condition, function (result) {
+    burger.updateOne({ devoured: devoured }, function (result) {
         if (result.changedRows == 0) {
             return response.status(404).end();
         }
