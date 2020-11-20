@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const orm = require("../config/orm");
 
+// BURGER OBJECT
 var burger = {
 
     selectAll: function () {
@@ -23,4 +24,5 @@ var burger = {
 
 };
 
+// EXPORTS
 module.exports = burger;
