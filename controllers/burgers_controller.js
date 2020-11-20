@@ -10,9 +10,9 @@ const router = express.Router();
 router.get("/", function (request, response) {
     burger.selectAll(function (data) {
         const hbsObject = {
-            burgers: data
+            burger: data
         };
-        console.log(`--> ${logSymbols.success} Sending: ${JSON.stringify(hbsObject)}`);
+        console.log(`--> ${logSymbols.info} Sending: ${JSON.stringify(hbsObject)}`);
         response.render("index", hbsObject);
     });
 });

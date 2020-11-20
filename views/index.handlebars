@@ -1,0 +1,40 @@
+<div class="jumbotron jumbotron-fluid bg-danger mb-0 p-5">
+    <div class="container text-center">
+        {{!-- Gif provided by giphy: https://media0.giphy.com/media/60rUE5e0SYRPRl3vcS/giphy.gif --}}
+        <img src="/assets/img/burger.gif" height=200>
+        <h1 class="display-3 text-light"><strong>Eat the Burger!</strong></h1>
+    </div>
+</div>
+
+<div class="container-fluid bg-light">
+    <div class="container p-3 mb-3">
+        <div class="input-group">
+            <input type="text" id="addBurger" class="form-control"
+                placeholder="Enter the name of a burger you'd like to eat and press 'Add Burger!'">
+            <div class="input-group-append">
+                <button class="btn btn-success" id="addBurger" type="button">Add Burger!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h5>Available Burgers:</h5>
+                {{#each burger}}
+                <div class="input-group-append">
+                    <div class="bg-light rounded p-2 w-100 mb-3"><span class="align-middle h-100">{{burger_name}}</span><button class="btn btn-info pull-right" id="addBurger" type="button">Devour!</button></div>
+                </div>
+                {{/each}}
+        </div>
+        <div class="col-6 text-right">
+            <h5>Devoured Burgers:</h5>
+                {{#each burger}}
+                <div class="bg-dark text-white rounded p-2 w-100 mb-3">{{burger_name}}</div>
+                {{/each}}
+        </div>
+
+    </div>
+
+</div>
