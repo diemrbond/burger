@@ -1,3 +1,4 @@
+// DEPENDENCIES
 const mysql = require("mysql");
 const logSymbols = require('log-symbols');
 
