@@ -26,11 +26,12 @@ router.post("/api/burgers", function (request, response) {
 
 // UPDATE
 router.put("/api/burgers/:new", function (request, response) {
-    const devoured = request.params.new;
+    const id = request.params.new;
+    const devoured = request.body.devoured;
 
-    console.log(`--> Devoured: ${devoured}`);
+    console.log(`--> Devoured(${id}): ${devoured}`);
 
-    burger.updateOne({ devoured: devoured }, function (result) {
+    burger.updateOne("devoured", devoured, id, function (result) {
         if (result.changedRows == 0) {
             return response.status(404).end();
         }

@@ -25,7 +25,7 @@
                 {{#each burger}}
                     {{#unless devoured}}
                     <div class="input-group-append">
-                        <div class="burgers bg-light rounded p-2 w-100 mb-3"><span class="align-middle h-100">{{id}}. {{burger_name}}</span><button class="btn btn-info pull-right" id="eatBurger" type="button">Devour!</button></div>
+                        <div class="burgers bg-light rounded p-2 w-100 mb-3"><span class="align-middle h-100">{{id}}. {{burger_name}}</span><button data-id={{id}} class="btn btn-info pull-right eatBurger" type="button">Devour!</button></div>
                     </div>
                     {{/unless}}
                 {{/each}}
