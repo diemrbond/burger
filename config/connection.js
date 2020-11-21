@@ -3,13 +3,18 @@ const mysql = require("mysql");
 const logSymbols = require('log-symbols');
 
 // CREATE CONNECTION OBJECT
-const connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: process.env.DB_PASS,
-  database: "burgers_db"
-});
+if (process.env.JAWSDB_URL){
+  const connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+else {
+  const connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: process.env.DB_PASS,
+    database: "burgers_db"
+  });
+}
 
 // CONNECT TO DATABASE
 connection.connect(function(error) {
