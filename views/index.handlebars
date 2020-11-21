@@ -22,23 +22,22 @@
     <div class="row">
         <div class="col-6">
             <h5>Available Burgers:</h5>
-                {{#each burger}}
-                    {{#unless devoured}}
-                    <div class="input-group-append">
-                        <div class="burgers bg-light rounded p-2 w-100 mb-3"><span class="align-middle h-100">{{id}}. {{burger_name}}</span><button data-id={{id}} class="btn btn-info pull-right eatBurger" type="button">Devour!</button></div>
-                    </div>
-                    {{/unless}}
-                {{/each}}
+            {{#each burger}}
+            {{#unless devoured}}
+            <div class="burgers bg-light rounded p-2 mb-3" style="overflow: auto">
+                <div class="float-left w-75">{{id}}. {{burger_name}}</div>
+                <button data-id={{id}} class="btn btn-info eatBurger float-right" type="button">Devour!</button>
+            </div>
+            {{/unless}}
+            {{/each}}
         </div>
         <div class="col-6 text-right">
             <h5>Devoured Burgers:</h5>
-                {{#each burger}}
-                    {{#if devoured}}
-                    <div class="burgers bg-dark text-white rounded p-2 w-100 mb-3">{{id}}. {{burger_name}}</div>
-                    {{/if}}
-                {{/each}}
+            {{#each burger}}
+            {{#if devoured}}
+            <div class="burgers bg-dark text-white rounded p-2 w-100 mb-3">{{id}}. {{burger_name}}</div>
+            {{/if}}
+            {{/each}}
         </div>
-
     </div>
-
 </div>

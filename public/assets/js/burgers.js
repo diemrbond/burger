@@ -1,33 +1,41 @@
 $(function () {
+
+    // ADD A BURGER
     $("#addBurgerBtn").on("click", function (event) {
 
-        let newBurger = {
-            burger_name: $("#addBurger").val()
-        }
-        console.log(`Adding burger: ${JSON.stringify(newBurger)}`)
+        // CHECK THE BURGER ISN'T EMPTY
+        if ($("#addBurger").val() != ""){
 
-        $.ajax("/api/burgers", {
-            type: "POST",
-            data: newBurger
-        }).then(
-            function () {
-                location.reload();
-            }
-        );
+            // ADD THE BURGER
+            let newBurger = {
+                burger_name: $("#addBurger").val()
+            }            
+            console.log(`Adding burger: ${JSON.stringify(newBurger)}`)
+
+            // AJAX CALL
+            $.ajax("/api/burgers", {
+                type: "POST",
+                data: newBurger
+            }).then(
+                function () {
+                    location.reload();
+                }
+            );
+        }
     });
 
+    // EAT A BURGER
     $(".eatBurger").on("click", function (event) {
-        // Make sure to preventDefault on a submit event.
+        
         event.preventDefault();
-
         let id = $(this).attr("data-id");
-        console.log("id:"+id)
 
+        // SET THE BURGER BOOLEAN
         let updateBurger = {
             devoured: 1
         };
 
-        // Send the POST request.
+        // AJAX CALL
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: updateBurger
@@ -37,5 +45,4 @@ $(function () {
             }
         );
     });
-
 });

@@ -1,8 +1,10 @@
 // DEPENDENCIES
 const connection = require("./connection");
 
+// CREATE THE ORM
 const orm = {
 
+    // SELECT ALL BURGERS
     selectAll: function (tableInput, callback) {
 
         let queryString = `SELECT * FROM ${tableInput}`;
@@ -13,6 +15,7 @@ const orm = {
         });
     },
 
+    // ADD A NEW BURGER
     insertOne: function (table, column, values, callback) {
 
         let queryString = `INSERT INTO ?? (??) VALUES (?)`;
@@ -23,19 +26,16 @@ const orm = {
         });
     },
     
+    // DEVOUR A CURRENT BURGER
     updateOne: function (table, column, condition, values, callback) {
 
         let queryString = `UPDATE ?? SET ??=? WHERE id=?`;
-        console.log("table: "+table)
-        console.log("column: "+column)
-        console.log("values: "+values)
-        console.log("callback: "+callback)
+        
         connection.query(queryString, [table,column,condition,values], function (error, result) {
             if (error) throw error;
             callback(result);
         });
     }
-
 }
 
 // EXPORTS
