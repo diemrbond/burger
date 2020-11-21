@@ -3,6 +3,7 @@ const mysql = require("mysql");
 const logSymbols = require('log-symbols');
 
 // CREATE CONNECTION OBJECT
+console.log("process.env.JAWSDB_URL: "+process.env.JAWSDB_URL);
 if (process.env.JAWSDB_URL){
   const connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
