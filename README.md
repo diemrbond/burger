@@ -6,6 +6,7 @@
 
 
 <img src="public/assets/img/screenshot.jpg" width="600" /> <br>
+
 <img src="public/assets/img/demo.gif" width="600" /> <br>
 
   ---
