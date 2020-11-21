@@ -3,9 +3,9 @@ const mysql = require("mysql");
 const logSymbols = require('log-symbols');
 
 // CREATE CONNECTION OBJECT
-console.log("process.env.JAWSDB_URL: "+process.env.JAWSDB_URL);
 let connection;
 
+// CHECK IF LIVE
 if (process.env.JAWSDB_URL){
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
