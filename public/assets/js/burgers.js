@@ -52,6 +52,15 @@ $(function () {
         event.preventDefault();
         let id = $(this).attr("data-id");
 
+        $('#confirm-delete').attr("data-id",id);
+    });
+    
+    // CONFIRM DELETE A BURGER
+    $("#confirm-delete").on("click", function (event) {
+        
+        event.preventDefault();
+        let id = $(this).attr("data-id");
+
         // AJAX CALL
         $.ajax("/api/burgers/" + id, {
             type: "DELETE"
