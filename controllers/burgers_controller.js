@@ -41,5 +41,22 @@ router.put("/api/burgers/:new", function (request, response) {
     });
 });
 
+// DELETE
+router.delete("/api/burgers/:new", function (request, response) {
+    const id = request.params.new;
+
+    console.log(`--> Deleted(${id})`);
+
+    burger.deleteOne("burgers", id, function (result) {
+        
+        if (result.affectedRows == 0) {
+            return response.status(404).end();
+        }
+        else {
+            response.status(200).end();
+        }
+    });
+});
+
 // EXPORTS
 module.exports = router;

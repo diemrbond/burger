@@ -35,6 +35,17 @@ const orm = {
             if (error) throw error;
             callback(result);
         });
+    },
+    
+    // DELETE A CURRENT BURGER
+    deleteOne: function (table, condition, callback) {
+
+        let queryString = `DELETE FROM ?? WHERE id=?`;
+        
+        connection.query(queryString, [table,condition], function (error, result) {
+            if (error) throw error;
+            callback(result);
+        });
     }
 }
 

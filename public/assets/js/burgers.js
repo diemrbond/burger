@@ -45,4 +45,20 @@ $(function () {
             }
         );
     });
+    
+    // DELETE A BURGER
+    $(".deleteBurger").on("click", function (event) {
+        
+        event.preventDefault();
+        let id = $(this).attr("data-id");
+
+        // AJAX CALL
+        $.ajax("/api/burgers/" + id, {
+            type: "DELETE"
+        }).then(
+            function () {
+                location.reload();
+            }
+        );
+    });
 });

@@ -23,6 +23,13 @@ var burger = {
         orm.updateOne("burgers",columnValues, condition, values, function (response) {
             callback(response);
         });
+    },
+
+    // DELETE A BURGER
+    deleteOne: function (table, condition, callback) {
+        orm.deleteOne(table, condition, function (response) {
+            callback(response);
+        });
     }
 
 };

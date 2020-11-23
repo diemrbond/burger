@@ -31,11 +31,14 @@
             {{/unless}}
             {{/each}}
         </div>
-        <div class="col-6 text-right">
+        <div class="col-6 text-left">
             <h5>Devoured Burgers:</h5>
             {{#each burger}}
             {{#if devoured}}
-            <div class="burgers bg-dark text-white rounded p-2 w-100 mb-3">{{id}}. {{burger_name}}</div>
+            <div class="burgers bg-dark text-white rounded p-2 mb-3" style="overflow: auto">
+                <div class="float-left w-75">{{id}}. {{burger_name}}</div>
+                <button data-id={{id}} class="btn btn-info deleteBurger float-right" type="button"><i class="fa fa-trash"></i></button>
+            </div>
             {{/if}}
             {{/each}}
         </div>
