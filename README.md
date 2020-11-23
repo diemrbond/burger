@@ -2,7 +2,7 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ## Description 
-  For this assignment, we created a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM. We used Node and MySQL to query and route data on the app, and Handlebars to generate our HTML. This was then hosted on Heroku.
+  For this assignment, we created a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM. We used Node and MySQL to query and route data on the app, and Handlebars to generate our HTML. This was then hosted on Heroku. I also found an issue where people could spam the board with gibberish, so added a delete option with a confirmation dialog.
 
 
 <img src="public/assets/img/screenshot.jpg" width="600" /> <br>
